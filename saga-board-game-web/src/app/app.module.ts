@@ -20,12 +20,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreMapComponent,
     HomePageComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    MatDividerModule,
+    NgScrollbarModule,
+    MatListModule,
+    MatGridListModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

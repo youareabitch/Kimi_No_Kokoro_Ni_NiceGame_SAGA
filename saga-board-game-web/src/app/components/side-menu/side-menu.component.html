@@ -1,0 +1,12 @@
+<div class="bg-dark">
+    <button mat-button [matMenuTriggerFor]="languageMenu" class="text-white">
+        <b>{{'SideMenu.ChooseLanguage' | translate}}</b>
+    </button>
+</div>
+
+<mat-menu class="bg-secondary" #languageMenu="matMenu">
+    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-TW')">繁體中文</button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-CN')">简体中文</button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('jp')">日本語</button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('en')">English</button>
+</mat-menu>

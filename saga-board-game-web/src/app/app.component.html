@@ -1,11 +1,10 @@
-<!-- <app-top-toolbar></app-top-toolbar> -->
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="bg-light w-auto p-2" mode="over" [(opened)]="isOpen">
-    Sidenav contenttttttttttttttttt
+  <mat-sidenav #sidenav class="bg-dark" mode="over" style="overflow: hidden;">
+    <app-side-menu></app-side-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar class="bg-dark">
+    <mat-toolbar class="bg-secondary">
       <mat-toolbar-row>
         <button mat-stroked-button class="shadow-none" (click)="sidenav.toggle()">
           <mat-icon class="text-white">dehaze</mat-icon>
@@ -13,9 +12,11 @@
       </mat-toolbar-row>
     </mat-toolbar>
 
-    <div class="container-fluid bg-light">
-      <router-outlet></router-outlet>
-    </div>
+    <ng-scrollbar [visibility]="'hover'">
+      <div class="container-fluid bg-dark fix-height text-white">
+        <router-outlet></router-outlet>
+      </div>
+    </ng-scrollbar>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

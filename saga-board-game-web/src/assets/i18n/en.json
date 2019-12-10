@@ -1,6 +1,9 @@
 {
-  "AppRoot": {
-    "PortfolioPlan": "股權計畫",
-    "Option": "期權"
+  "AppRoot": {},
+  "HomePage": {
+    "WelcomeTitle": "Welcome To SAGA Board Game"
+  },
+  "SideMenu": {
+    "ChooseLanguage": "Choose a language"
   }
 }

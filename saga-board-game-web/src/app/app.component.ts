@@ -2,7 +2,6 @@ import { Component, OnInit, ViewContainerRef, TemplateRef, ViewChild } from '@an
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { BackdropSpinnerService } from './services/backdrop-spinner.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AppComponent implements OnInit {
   @ViewChild('backdropSpinner', { static: true }) backdropSpinner: TemplateRef<any>;
-
   overlayRef: OverlayRef;
 
   constructor(

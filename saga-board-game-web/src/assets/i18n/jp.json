@@ -1,6 +1,9 @@
 {
-  "AppRoot": {
-    "PortfolioPlan": "股權計畫",
-    "Option": "期權"
+  "AppRoot": {},
+  "HomePage": {
+    "WelcomeTitle": "君の心にナイスゲームSAGA"
+  },
+  "SideMenu": {
+    "ChooseLanguage": "言語"
   }
 }

@@ -2,6 +2,9 @@
   "AppRoot": {},
   "HomePage": {
     "WelcomeTitle": "欢迎游玩佐贺桌游"
+  },
+  "SideMenu": {
+    "ChooseLanguage": "选择语言"
   }
 }
 
