@@ -15,12 +15,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppTranslationService } from './services/translate.service';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreMapComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatSnackBarModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,7 +48,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         deps: [HttpClient]
       }
     }),
-    HttpClientModule
   ],
   providers: [
     BackdropSpinnerService

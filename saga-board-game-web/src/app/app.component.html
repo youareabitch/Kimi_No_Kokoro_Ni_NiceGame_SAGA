@@ -1,10 +1,23 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- <app-top-toolbar></app-top-toolbar> -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="bg-light w-auto p-2" mode="over" [(opened)]="isOpen">
+    Sidenav contenttttttttttttttttt
+  </mat-sidenav>
 
-<div class="container-fluid bg-light">
-  <router-outlet></router-outlet>
-</div>
+  <mat-sidenav-content>
+    <mat-toolbar class="bg-dark">
+      <mat-toolbar-row>
+        <button mat-stroked-button class="shadow-none" (click)="sidenav.toggle()">
+          <mat-icon class="text-white">dehaze</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-
+    <div class="container-fluid bg-light">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <ng-template #backdropSpinner>
   <mat-spinner></mat-spinner>
