@@ -5,8 +5,16 @@
 </div>
 
 <mat-menu class="bg-secondary" #languageMenu="matMenu">
-    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-TW')">繁體中文</button>
-    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-CN')">简体中文</button>
-    <button mat-menu-item class="text-white" (click)="changeLanguage('jp')">日本語</button>
-    <button mat-menu-item class="text-white" (click)="changeLanguage('en')">English</button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-TW')">繁體中文
+        <mat-icon class="ml-2" svgIcon="tw-flag"></mat-icon>
+    </button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('zh-CN')">简体中文
+        <mat-icon class="ml-2" svgIcon="cn-flag"></mat-icon>
+    </button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('jp')">日本語
+        <mat-icon class="ml-2" svgIcon="jp-flag"></mat-icon>
+    </button>
+    <button mat-menu-item class="text-white" (click)="changeLanguage('en')">English
+        <mat-icon class="ml-2" svgIcon="us-flag"></mat-icon>
+    </button>
 </mat-menu>

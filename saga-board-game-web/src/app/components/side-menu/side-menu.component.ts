@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppTranslationService } from 'src/app/services/translate.service';
 import { MenuPositionX } from '@angular/material/menu';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-side-menu',
@@ -10,8 +12,15 @@ import { MenuPositionX } from '@angular/material/menu';
 })
 export class SideMenuComponent implements OnInit {
   constructor(
-    private appTranslateService: AppTranslationService
-  ) { }
+    private appTranslateService: AppTranslationService,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon('cn-flag', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/country/cn.svg'));
+    iconRegistry.addSvgIcon('jp-flag', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/country/jp.svg'));
+    iconRegistry.addSvgIcon('tw-flag', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/country/tw.svg'));
+    iconRegistry.addSvgIcon('us-flag', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/country/us.svg'));
+  }
 
   ngOnInit() {
   }
