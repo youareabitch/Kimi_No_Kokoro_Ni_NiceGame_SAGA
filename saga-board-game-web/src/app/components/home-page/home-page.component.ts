@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppTranslationService } from 'src/app/services/translate.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SignInComponent } from '../sign-in/sign-in.component';
 
 @Component({
   selector: 'app-home-page',
@@ -9,9 +11,15 @@ import { AppTranslationService } from 'src/app/services/translate.service';
 export class HomePageComponent implements OnInit {
 
   constructor(
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
   }
 
+  openSignInDialog() {
+    const dialog = this.dialog.open(SignInComponent);
+
+    dialog.addPanelClass('bg-dark');
+  }
 }

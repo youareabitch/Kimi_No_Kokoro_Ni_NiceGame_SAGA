@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { OverlayModule, OverlayContainer } from '@angular/cdk/overlay';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BackdropSpinnerService } from './services/backdrop-spinner.service';
 import { ScoreMapComponent } from './components/score-map/score-map.component';
@@ -25,6 +25,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ScoreMapComponent,
     HomePageComponent,
     SideMenuComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     NgScrollbarModule,
     MatListModule,
     MatGridListModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -62,14 +70,22 @@ import { MatGridListModule } from '@angular/material/grid-list';
   providers: [
     BackdropSpinnerService
   ],
+  entryComponents: [
+    SignInComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private translateService: TranslateService, private appTranslate: AppTranslationService) {
+  constructor(
+    private translateService: TranslateService,
+    private appTranslate: AppTranslationService,
+    overlayContainer: OverlayContainer
+  ) {
     this.translateService.use(appTranslate.getBrowserLanguage());
     appTranslate.languageChanged$.subscribe(lang => {
       translateService.use(lang);
     });
+
   }
 }
 

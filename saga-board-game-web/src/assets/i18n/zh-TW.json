@@ -1,10 +1,19 @@
 {
   "AppRoot": {},
   "HomePage": {
-    "WelcomeTitle": "歡迎遊玩佐賀桌遊"
+    "WelcomeTitle": "歡迎遊玩佐賀桌遊",
+    "SignIn": "登入",
+    "SignUp": "註冊"
   },
   "SideMenu": {
     "ChooseLanguage": "選擇語言",
     "Menu": "選單"
+  },
+  "Common": {
+    "Cancel": "取消"
+  },
+  "SignIn": {
+    "Account": "帳號",
+    "Password": "密碼"
   }
 }
