@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>{{'HomePage.SignIn' | translate}}</h2>
+<h2 mat-dialog-title>{{'HomePage.SignUp' | translate}}</h2>
 
-<mat-dialog-content class="mat-typography h-50">
+<mat-dialog-content class="mat-typography">
     <form *ngIf="theForm" [formGroup]="theForm">
         <div class="row">
             <div class="col">
@@ -21,11 +21,21 @@
                 </mat-form-field>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <input matInput type="password" formControlName="confirmPassword"
+                        [placeholder]="'SignIn.ConfirmPassword' | translate" required>
+                    <mat-error *ngIf="formErrors.confirmPassword">{{formErrors.confirmPassword}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
     </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
     <button mat-flat-button mat-dialog-close color="warn">{{'Common.Cancel' | translate}}</button>
     <button mat-flat-button [mat-dialog-close]="true" color="primary" *ngIf="theForm"
-        [disabled]="!theForm.valid">{{'HomePage.SignIn' | translate}}</button>
+        [disabled]="!theForm.valid">{{'HomePage.SignUp' | translate}}</button>
 </mat-dialog-actions>

@@ -14,6 +14,11 @@
   },
   "SignIn": {
     "Account": "帳號",
-    "Password": "密碼"
+    "Password": "密碼",
+    "ConfirmPassword": "確認密碼"
+  },
+  "Validate": {
+    "Required": "必填",
+    "PasswordCompare":"密碼比對不一致"
   }
 }

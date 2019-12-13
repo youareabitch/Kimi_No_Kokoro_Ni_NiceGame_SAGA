@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppTranslationService } from 'src/app/services/translate.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SignInComponent } from '../sign-in/sign-in.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-home-page',
@@ -17,9 +18,13 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  /** 開啟登入視窗 */
   openSignInDialog() {
-    const dialog = this.dialog.open(SignInComponent);
+    this.dialog.open(SignInComponent);
+  }
 
-    dialog.addPanelClass('bg-dark');
+  /** 開啟註冊視窗 */
+  openSignUpDialog() {
+    this.dialog.open(SignUpComponent);
   }
 }

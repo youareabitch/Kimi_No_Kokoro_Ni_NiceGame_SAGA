@@ -29,6 +29,10 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignUpValidateConfig } from './services/validate-configs/sign-up-validate.config';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SignInValidateConfig } from './services/validate-configs/sign-in-validate.config';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomePageComponent,
     SideMenuComponent,
     SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -68,10 +75,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     }),
   ],
   providers: [
-    BackdropSpinnerService
+    BackdropSpinnerService,
+    SignUpValidateConfig,
+    SignInValidateConfig
   ],
   entryComponents: [
-    SignInComponent
+    SignInComponent,
+    SignUpComponent,
   ],
   bootstrap: [AppComponent]
 })

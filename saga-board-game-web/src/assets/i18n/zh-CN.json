@@ -1,10 +1,25 @@
 {
   "AppRoot": {},
   "HomePage": {
-    "WelcomeTitle": "欢迎游玩佐贺桌游"
+    "WelcomeTitle": "欢迎游玩佐贺桌游",
+    "SignIn": "登入",
+    "SignUp": "注册"
   },
   "SideMenu": {
-    "ChooseLanguage": "选择语言"
+    "ChooseLanguage": "选择语言",
+    "Menu": "选单"
+  },
+  "Common": {
+    "Cancel": "取消"
+  },
+  "SignIn": {
+    "Account": "账号",
+    "Password": "密码",
+    "ConfirmPassword": "确认密码"
+  },
+  "Validate": {
+    "Required": "必填",
+    "PasswordCompare":"密码比对不一致"
   }
 }
 

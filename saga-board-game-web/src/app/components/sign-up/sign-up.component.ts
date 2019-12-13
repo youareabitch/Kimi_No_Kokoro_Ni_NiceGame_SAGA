@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { SignUpValidateConfig } from 'src/app/services/validate-configs/sign-up-validate.config';
 import { FormGroup } from '@angular/forms';
-import { SignInValidateConfig } from 'src/app/services/validate-configs/sign-in-validate.config';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SignUpComponent implements OnInit {
 
   /** 表單 */
   theForm: FormGroup;
   formErrors: any;
 
   constructor(
-    private validateConfig: SignInValidateConfig
+    private validateConfig: SignUpValidateConfig
   ) { }
 
   ngOnInit() {
