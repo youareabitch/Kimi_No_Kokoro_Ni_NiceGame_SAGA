@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{'HomePage.CreateRoom' | translate}}</h2>
+
+<mat-dialog-content class="mat-typography h-50">
+    <form *ngIf="theForm" [formGroup]="theForm">
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <input cdkFocusInitial matInput formControlName="roomName"
+                        [placeholder]="'CreateRoom.RoomName' | translate" required>
+                    <mat-error *ngIf="formErrors.roomName">{{formErrors.roomName}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-flat-button mat-dialog-close color="warn">{{'Common.Cancel' | translate}}</button>
+    <button mat-flat-button mat-dialog-close color="primary" *ngIf="theForm" (click)="createRoom()"
+        [disabled]="!theForm.valid">{{'CreateRoom.Create' | translate}}</button>
+</mat-dialog-actions>

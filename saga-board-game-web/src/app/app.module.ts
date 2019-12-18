@@ -33,6 +33,15 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignUpValidateConfig } from './services/validate-configs/sign-up-validate.config';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignInValidateConfig } from './services/validate-configs/sign-in-validate.config';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
+import { CreateRoomValidateConfig } from './services/validate-configs/create-room-validate.config';
+import { JoinRoomComponent } from './components/join-room/join-room.component';
+import { MatTableModule } from '@angular/material/table';
+import { RoomComponent } from './components/room/room.component';
+import { LayoutService } from './services/layout.service';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [
@@ -42,6 +51,9 @@ import { SignInValidateConfig } from './services/validate-configs/sign-in-valida
     SideMenuComponent,
     SignInComponent,
     SignUpComponent,
+    CreateRoomComponent,
+    JoinRoomComponent,
+    RoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +78,7 @@ import { SignInValidateConfig } from './services/validate-configs/sign-in-valida
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    MatTableModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -73,15 +86,20 @@ import { SignInValidateConfig } from './services/validate-configs/sign-in-valida
         deps: [HttpClient]
       }
     }),
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     BackdropSpinnerService,
     SignUpValidateConfig,
-    SignInValidateConfig
+    SignInValidateConfig,
+    CreateRoomValidateConfig,
+    LayoutService
   ],
   entryComponents: [
     SignInComponent,
     SignUpComponent,
+    CreateRoomComponent,
+    JoinRoomComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,9 @@
   "HomePage": {
     "WelcomeTitle": "歡迎遊玩佐賀桌遊",
     "SignIn": "登入",
-    "SignUp": "註冊"
+    "SignUp": "註冊",
+    "CreateRoom": "創建房間",
+    "JoinRoom": "加入房間"
   },
   "SideMenu": {
     "ChooseLanguage": "選擇語言",
@@ -17,8 +19,20 @@
     "Password": "密碼",
     "ConfirmPassword": "確認密碼"
   },
+  "CreateRoom": {
+    "RoomName": "房間名稱",
+    "Create": "建立"
+  },
+  "JoinRoom": {
+    "PlayersCount": "房間人數",
+    "Operation": "操作",
+    "Join": "加入"
+  },
+  "Room": {
+    "BackToLobby": "返回大廳"
+  },
   "Validate": {
     "Required": "必填",
-    "PasswordCompare":"密碼比對不一致"
+    "PasswordCompare": "密碼比對不一致"
   }
 }
