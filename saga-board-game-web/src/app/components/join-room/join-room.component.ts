@@ -3,6 +3,7 @@ import { Socket } from 'ngx-socket-io';
 import { Room } from 'src/app/models/room';
 import { LayoutService } from 'src/app/services/layout.service';
 import { Operations } from 'src/app/models/enums/operations.enum';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-join-room',
@@ -15,6 +16,7 @@ export class JoinRoomComponent implements OnInit {
 
   constructor(
     private socket: Socket,
+    private dialogRef: MatDialogRef<JoinRoomComponent>,
     private layoutService: LayoutService
   ) { }
 
@@ -27,9 +29,9 @@ export class JoinRoomComponent implements OnInit {
   }
 
   /** 加入房間 */
-  joinRoom(room) {
-    console.log(room);
-    this.socket.emit('joinRoom', room);
+  joinRoom(roomId) {
+    this.socket.emit('joinRoom', roomId);
+    this.dialogRef.close(roomId);
     this.layoutService.changeOperation(Operations.room);
   }
 }

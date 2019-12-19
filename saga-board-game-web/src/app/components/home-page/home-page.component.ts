@@ -14,8 +14,11 @@ import { LayoutService } from 'src/app/services/layout.service';
 })
 export class HomePageComponent implements OnInit {
 
+  /** 換頁面相關 */
   ops = Operations;
   curOp = Operations.home;
+
+  roomId: string;
 
   constructor(
     private dialog: MatDialog,
@@ -38,11 +41,13 @@ export class HomePageComponent implements OnInit {
 
   /** 開啟創立房間視窗 */
   openCreateRoomDialog() {
-    this.dialog.open(CreateRoomComponent);
+    const dialog = this.dialog.open(CreateRoomComponent);
+    dialog.afterClosed().subscribe(x => this.roomId = x);
   }
 
   /** 開啟加入房間視窗 */
   openJoinRoomDialog() {
-    this.dialog.open(JoinRoomComponent);
+    const dialog = this.dialog.open(JoinRoomComponent);
+    dialog.afterClosed().subscribe(x => this.roomId = x);
   }
 }

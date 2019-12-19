@@ -5,6 +5,7 @@ import { Socket } from 'ngx-socket-io';
 import { Room } from 'src/app/models/room';
 import { LayoutService } from 'src/app/services/layout.service';
 import { Operations } from 'src/app/models/enums/operations.enum';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-room',
@@ -21,6 +22,7 @@ export class CreateRoomComponent implements OnInit {
   constructor(
     private socket: Socket,
     private validateConfig: CreateRoomValidateConfig,
+    private dialogRef: MatDialogRef<CreateRoomComponent>,
     private layoutService: LayoutService
   ) { }
 
@@ -42,5 +44,6 @@ export class CreateRoomComponent implements OnInit {
     newRoom.roomName = this.theForm.controls.roomName.value;
     this.socket.emit('createRoom', newRoom);
     this.layoutService.changeOperation(Operations.room);
+    this.dialogRef.close(newRoom.id);
   }
 }

@@ -47,25 +47,22 @@ io.on("connection", socket => {
   });
 
   /** 加入房間 */
-  socket.on("joinRoom", room => {
-    const theRoom = rooms.find(x => x == room);
-    console.log(theRoom);
-    // theRoom.playersCount++;
-    console.log(room);
-    console.log(rooms);
+  socket.on("joinRoom", roomId => {
+    const theRoom = rooms.find(function (x) { return x.id == roomId; });
+    theRoom.playersCount++;
     io.emit("rooms", rooms);
   });
 
   /** 離開房間 */
   socket.on("leftRoom", roomId => {
-    const theRoom = rooms.find(x => x.roomId == roomId);
+    const theRoom = rooms.find(function (x) { return x.id == roomId; });
     theRoom.playersCount--;
 
     // 若房間沒人則移除房間
     if (theRoom.playersCount == 0) {
       rooms.splice(rooms.indexOf(theRoom), 1);
     }
-
+    console.log(rooms);
     io.emit("rooms", rooms);
   });
 
