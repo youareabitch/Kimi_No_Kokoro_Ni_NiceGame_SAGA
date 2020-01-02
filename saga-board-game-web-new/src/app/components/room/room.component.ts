@@ -16,6 +16,7 @@ export class RoomComponent implements OnInit, OnDestroy {
   @Input() playerName: string;
 
   room = new Room();
+  isCreater: boolean;
   private roomSub: Subscription;
 
   constructor(
@@ -32,6 +33,7 @@ export class RoomComponent implements OnInit, OnDestroy {
     this.roomService.getRoom(this.roomId);
     this.roomSub = this.roomService.currentRoom.subscribe(x => {
       this.room = x;
+      this.isCreater = this.room.players.find(x => x.name === this.playerName).isCreater;
     });
   }
 

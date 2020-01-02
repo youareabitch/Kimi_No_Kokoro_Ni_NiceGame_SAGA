@@ -1,17 +1,22 @@
-<!-- <button nz-button nzGhost nzSize="large" (click)="isMenuOpen = true">
-    <i nz-icon nzType="menu"></i>
-</button> -->
+<mat-toolbar class="bg-secondary">
+    <mat-toolbar-row>
+        <button mat-stroked-button class="shadow-none" (click)="isMenuOpen = true">
+            <mat-icon class="text-white">dehaze</mat-icon>
+        </button>
 
-<button mat-stroked-button class="shadow-none" (click)="isMenuOpen = true">
-    <mat-icon class="text-white">dehaze</mat-icon>
-  </button>
+        <div class="d-flex justify-content-end w-100">
+            {{'AppRoot.PlayerName' | translate}}：
+            <input nz-input [placeholder]="'AppRoot.PlayerName' | translate" [(ngModel)]="playerName" class="w-25"
+                (change)="playerNameChanged()" />
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
 
 <nz-drawer [nzClosable]="false" [nzVisible]="isMenuOpen" [nzPlacement]="'left'" (nzOnClose)="isMenuOpen = false"
     [nzWidth]="'auto'" [nzWrapClassName]="'bg-dark'">
     <button nz-button nzBlock nz-dropdown [nzDropdownMenu]="languageMenu" nzTrigger="click">
         {{'SideMenu.ChooseLanguage' | translate}}
     </button>
-
 </nz-drawer>
 
 <nz-dropdown-menu #languageMenu="nzDropdownMenu" class="p-0">

@@ -54,6 +54,7 @@ io.on("connection", socket => {
     socket.leaveAll();
     socket.join(room.id);
     io.emit("rooms", rooms);
+    console.log(room.players)
   });
 
   /** 加入房間 */
@@ -81,6 +82,11 @@ io.on("connection", socket => {
     if (theRoom.players.length == 0) {
       rooms.splice(rooms.indexOf(theRoom), 1);
     } else {
+      // 若無房主則指定新房主
+      if (theRoom.players.find(function (x) { return x.isCreater == true; }) == undefined) {
+        theRoom.players[0].isCreater = true;
+      }
+
       socket.to(request.roomId).emit("room", theRoom);
     }
     io.emit("rooms", rooms);

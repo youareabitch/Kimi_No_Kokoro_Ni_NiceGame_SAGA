@@ -34,7 +34,8 @@
     "PlayersFull": "房間人數已滿。"
   },
   "Room": {
-    "BackToLobby": "返回大廳"
+    "BackToLobby": "返回大廳",
+    "KickPlayer": "踢除玩家"
   },
   "Validate": {
     "Required": "必填",

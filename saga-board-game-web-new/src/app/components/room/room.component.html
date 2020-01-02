@@ -11,24 +11,19 @@
     <h1 class="text-white">{{room.roomName}}</h1>
 </div>
 
-<div class="d-flex justify-content-center">
-    <div *ngFor="let item of room.players">
+<div class="row">
+    <div *ngFor="let item of room.players" class="col d-flex justify-content-center">
         <nz-card style="width:300px;" [nzCover]="coverTemplate"
-            [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-            <nz-card-meta nzTitle="Card title" nzDescription="This is the description" >
+            [nzActions]="isCreater && item.name != playerName ? [kick] : []">
+            <nz-card-meta [nzTitle]="item.name">
             </nz-card-meta>
         </nz-card>
         <ng-template #coverTemplate>
             <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
         </ng-template>
-        <ng-template #actionSetting>
-            <i nz-icon nzType="setting"></i>
-        </ng-template>
-        <ng-template #actionEdit>
-            <i nz-icon nzType="edit"></i>
-        </ng-template>
-        <ng-template #actionEllipsis>
-            <i nz-icon nzType="ellipsis"></i>
+        <ng-template #kick>
+            <i nz-icon nzType="stop" nzTheme="outline" nz-tooltip [nzTooltipTitle]="'Room.KickPlayer' | translate"
+                class="text-danger"></i>
         </ng-template>
     </div>
 </div>

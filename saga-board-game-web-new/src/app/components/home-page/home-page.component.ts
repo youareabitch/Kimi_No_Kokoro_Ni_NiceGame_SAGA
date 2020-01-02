@@ -46,6 +46,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       nzContent: CreateRoomComponent,
       nzTitle: this.translateService.instant('HomePage.CreateRoom')
     });
+    modal.afterOpen.subscribe(() => modal.getContentComponent().playerName = this.playerName);
 
     modal.afterClose.subscribe(x => {
       if (x) {
@@ -60,8 +61,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
     const modal = this.modalService.create({
       nzContent: JoinRoomComponent,
       nzTitle: this.translateService.instant('HomePage.JoinRoom'),
-      nzWidth:'70vw'
+      nzWidth: '70vw'
     });
+    modal.afterOpen.subscribe(() => modal.getContentComponent().playerName = this.playerName);
 
     modal.afterClose.subscribe(x => {
       if (x) {

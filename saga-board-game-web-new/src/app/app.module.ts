@@ -26,6 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RoomComponent } from './components/room/room.component';
 import { JoinRoomComponent } from './components/join-room/join-room.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PlayerNameService } from './services/player-name.service';
 
 registerLocaleData(zhTw);
 registerLocaleData(zhCn);
@@ -54,6 +56,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -66,7 +69,8 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
   providers: [
     { provide: NZ_I18N, useValue: zh_TW },
     LayoutService,
-    CreateRoomValidateConfig
+    CreateRoomValidateConfig,
+    PlayerNameService
   ],
   entryComponents: [
     CreateRoomComponent,
