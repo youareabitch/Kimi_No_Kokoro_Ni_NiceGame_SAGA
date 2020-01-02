@@ -40,8 +40,24 @@ import { JoinRoomComponent } from './components/join-room/join-room.component';
 import { MatTableModule } from '@angular/material/table';
 import { RoomComponent } from './components/room/room.component';
 import { LayoutService } from './services/layout.service';
+import { NgZorroAntdModule, NZ_I18N, zh_TW } from 'ng-zorro-antd';
+
+/** Angualr 多語系 */
+import { registerLocaleData } from '@angular/common';
+import zhHant from '@angular/common/locales/zh-Hant';
+import { PlayerNameService } from './services/player-name.service';
+import { RoomService } from './services/room.service';
+registerLocaleData(zhHant);
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 @NgModule({
   declarations: [
@@ -79,6 +95,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     ReactiveFormsModule,
     FormsModule,
     MatTableModule,
+    NgZorroAntdModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -93,7 +110,11 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     SignUpValidateConfig,
     SignInValidateConfig,
     CreateRoomValidateConfig,
-    LayoutService
+    LayoutService,
+    PlayerNameService,
+    RoomService,
+    { provide: NZ_I18N, useValue: zh_TW },
+    { provide: NZ_ICONS, useValue: icons }
   ],
   entryComponents: [
     SignInComponent,
@@ -107,7 +128,6 @@ export class AppModule {
   constructor(
     private translateService: TranslateService,
     private appTranslate: AppTranslationService,
-    overlayContainer: OverlayContainer
   ) {
     this.translateService.use(appTranslate.getBrowserLanguage());
     appTranslate.languageChanged$.subscribe(lang => {

@@ -1,0 +1,9 @@
+{
+  "AppRoot": {},
+  "HomePage": {
+    "WelcomeTitle": "Welcome To SAGA Board Game"
+  },
+  "SideMenu": {
+    "ChooseLanguage": "Choose a language"
+  }
+}

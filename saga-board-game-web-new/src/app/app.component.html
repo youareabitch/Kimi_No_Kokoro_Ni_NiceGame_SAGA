@@ -1,0 +1,11 @@
+<nz-layout>
+  <nz-header class="bg-secondary">
+    <app-header></app-header>
+  </nz-header>
+
+  <ng-scrollbar [visibility]="'hover'">
+    <nz-content class="bg-dark text-white content-height">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </ng-scrollbar>
+</nz-layout>

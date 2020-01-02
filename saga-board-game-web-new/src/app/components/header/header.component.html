@@ -1,0 +1,24 @@
+<!-- <button nz-button nzGhost nzSize="large" (click)="isMenuOpen = true">
+    <i nz-icon nzType="menu"></i>
+</button> -->
+
+<button mat-stroked-button class="shadow-none" (click)="isMenuOpen = true">
+    <mat-icon class="text-white">dehaze</mat-icon>
+  </button>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="isMenuOpen" [nzPlacement]="'left'" (nzOnClose)="isMenuOpen = false"
+    [nzWidth]="'auto'" [nzWrapClassName]="'bg-dark'">
+    <button nz-button nzBlock nz-dropdown [nzDropdownMenu]="languageMenu" nzTrigger="click">
+        {{'SideMenu.ChooseLanguage' | translate}}
+    </button>
+
+</nz-drawer>
+
+<nz-dropdown-menu #languageMenu="nzDropdownMenu" class="p-0">
+    <ul nz-menu nzSelectable>
+        <li nz-menu-item (click)="changeLanguage('zh-TW');isMenuOpen = false;">繁體中文</li>
+        <li nz-menu-item (click)="changeLanguage('zh-CN');isMenuOpen = false;">简体中文</li>
+        <li nz-menu-item (click)="changeLanguage('jp');isMenuOpen = false;">日本語</li>
+        <li nz-menu-item (click)="changeLanguage('en');isMenuOpen = false;">English</li>
+    </ul>
+</nz-dropdown-menu>

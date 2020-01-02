@@ -9,6 +9,11 @@
         <button mat-stroked-button class="shadow-none" (click)="sidenav.toggle()">
           <mat-icon class="text-white">dehaze</mat-icon>
         </button>
+
+        <div class="d-flex justify-content-end w-100">
+          {{'AppRoot.PlayerName' | translate}}：
+          <input nz-input [placeholder]="'AppRoot.PlayerName' | translate" [(ngModel)]="playerName" (change)="playerNameChanged()" />
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
 

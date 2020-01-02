@@ -6,6 +6,8 @@ import { Room } from 'src/app/models/room';
 import { LayoutService } from 'src/app/services/layout.service';
 import { Operations } from 'src/app/models/enums/operations.enum';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Player } from 'src/app/models/player';
+import { RoomService } from 'src/app/services/room.service';
 
 @Component({
   selector: 'app-create-room',
@@ -14,6 +16,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class CreateRoomComponent implements OnInit {
   rooms = this.socket.fromEvent<Room[]>('rooms');
+  playerName: string;
 
   /** 表單 */
   theForm: FormGroup;
@@ -23,11 +26,13 @@ export class CreateRoomComponent implements OnInit {
     private socket: Socket,
     private validateConfig: CreateRoomValidateConfig,
     private dialogRef: MatDialogRef<CreateRoomComponent>,
+    private roomService: RoomService,
     private layoutService: LayoutService
   ) { }
 
   ngOnInit() {
     this.initForm();
+    this.socket.emit('apiTest');
   }
 
   /** 表單初始化 */
@@ -41,9 +46,9 @@ export class CreateRoomComponent implements OnInit {
   /** 建立房間 */
   createRoom() {
     const newRoom = new Room();
+    newRoom.players.push({ name: this.playerName, isCreater: true })
     newRoom.roomName = this.theForm.controls.roomName.value;
-    this.socket.emit('createRoom', newRoom);
-    this.layoutService.changeOperation(Operations.room);
+    this.roomService.createRoom(newRoom);
     this.dialogRef.close(newRoom.id);
   }
 }

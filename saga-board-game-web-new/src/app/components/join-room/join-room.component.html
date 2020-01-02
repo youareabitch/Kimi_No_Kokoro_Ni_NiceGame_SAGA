@@ -1,0 +1,22 @@
+<div>
+    <nz-table #table [nzData]="rooms">
+        <thead>
+            <tr>
+                <th>{{'CreateRoom.RoomName' | translate}}</th>
+                <th>{{'JoinRoom.PlayersCount' | translate}}</th>
+                <th>{{'JoinRoom.Operation' | translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of table.data">
+                <td>{{ data.roomName }}</td>
+                <td>{{ data.players.length }}/4</td>
+                <td><button nz-button nzType="primary" (click)="joinRoom(data.id)"
+                        [disabled]="data.players.length>=4">{{'JoinRoom.Join' | translate}}</button></td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+<div *nzModalFooter>
+    <button nz-button nzType="danger" (click)="modal.destroy()">{{'Common.Cancel' | translate}}</button>
+</div>
